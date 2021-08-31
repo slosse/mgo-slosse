@@ -3,9 +3,7 @@ const ItemListContainer = (props)=> {
         <div class="ItemListContainer" >
             <h2 align="center" >{props.greeting}</h2>
         </div>
-        
-    )
-    
+    )    
     
 }
 
