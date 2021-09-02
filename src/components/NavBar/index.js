@@ -1,4 +1,3 @@
-import Button from '../Button';
 import 'bootstrap/dist/css/bootstrap.css';
 import CartWidget from '../CartWidget';
 
@@ -10,14 +9,14 @@ const NavBar = (props) => {
           <div class="container-fluid">
             <a class="navbar-brand" href="#">MGO</a>
             <div className="leftNav">
-              <Button label="Home"/>
-              
+              <button>Home</button>
+
             </div>
-            
+
             <div className="rigthNav">
-            <Button label="Login"/>
-            <Button label="Logout"/>
-              <CartWidget quantity="3"/>
+              <button>Login</button>
+              <button>Logout</button>
+              <CartWidget quantity="3" />
             </div>
           </div>
         </nav>

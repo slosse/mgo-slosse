@@ -1,4 +1,4 @@
-import './style.css';
+import './style.css'
 
 const CartWidget = (props) => {
     return(
@@ -10,4 +10,4 @@ const CartWidget = (props) => {
     );
 }
 
-export default CartWidget;
+export default CartWidget
