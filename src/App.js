@@ -4,8 +4,6 @@ import {useState} from 'react'
 
 const App =()=> {
 
-  const [quantity,setQuantity] = useState(0);
-
   return (
     <div>
       <NavBar/>
