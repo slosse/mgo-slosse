@@ -1,5 +1,5 @@
-import 'bootstrap/dist/css/bootstrap.css';
-import CartWidget from '../CartWidget';
+import 'bootstrap/dist/css/bootstrap.css'
+import CartWidget from '../CartWidget'
 
 const NavBar = (props) => {
 
@@ -20,7 +20,6 @@ const NavBar = (props) => {
             </div>
           </div>
         </nav>
-
       )
   }
   export default NavBar;

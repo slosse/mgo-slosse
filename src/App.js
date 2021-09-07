@@ -1,14 +1,14 @@
 import ItemListContainer from './components/ItemListContainer'
 import NavBar from './components/NavBar'
-import {useState} from 'react'
+import './App.css'
 
 const App =()=> {
 
   return (
-    <div>
+    <div className="App">
       <NavBar/>
-      <ItemListContainer greeting="Bienvenido a nuestro sitio de compras"/>
-    
+      <ItemListContainer/>
+      
     </div>
   )
 }

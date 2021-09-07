@@ -1,10 +1,37 @@
-import ItemCount from '../ItemCount';
-import './style.css';
+import { useState, useEffect} from 'react'
+import ItemCount from '../ItemCount'
+import ItemList from '../ItemList'
+import './style.css'
 
-const ItemListContainer = (props)=> {
+const products = [
+    { id: 1, name: 'Pugliese', description: 'Magia', stock: 12 },
+    { id: 2, name: 'Troilo', description: 'Aventura', stock: 10 },
+    { id: 3, name: 'Darienzo', description: 'Rock & Roll', stock: 15 },
+    { id: 4, name: 'Di Sarli', description: 'Soñar', stock: 20 },
+]
+
+function getList() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(products), 2000)
+    })
+}
+
+const ItemListContainer = ()=> {
+
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const list = getList()
+        console.log(list)
+        list.then(list => {
+            setProducts(list)
+        })
+    }, [])
+
+
     return (
-        <div class="ItemListContainer" >
-            <h2>{props.greeting}</h2>
+        <div className="ItemListContainer" >
+            <ItemList products={products}/>
             <ItemCount></ItemCount>
         </div>
     )    
