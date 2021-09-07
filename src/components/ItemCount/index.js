@@ -8,7 +8,7 @@ const ItemCount = ()=> {
 
     const onAdd= ()=> {
         if(quantity>=stock) {
-            setAlert("Se hace excedido el stock maximo")
+            setAlert("Se ha excedido el stock maximo")
             return
         }
         setQuantity(quantity+1)
@@ -36,8 +36,9 @@ const ItemCount = ()=> {
     
     return(
         <div>
-            {alert !="" ? <h3 style={{color:'red'}}>alert </h3> :"" }
+            
         <table >
+        <tbody>
             <tr>
                 <td align="center" colSpan="3">Camisa</td>
             </tr>
@@ -49,9 +50,12 @@ const ItemCount = ()=> {
             <tr>
                 <td align="center" colSpan="3"><button onClick={()=>setQuantity(0)}>Agregar al carrito</button></td>
             </tr>
-            
+            <tr>
+                <td align="center" colSpan="3"> {alert !="" ? <h3 style={{color:'red'}}>alert </h3> :"" }</td>
+            </tr>
+            </tbody>
         </table>
-        
+       
         </div>
     )
 

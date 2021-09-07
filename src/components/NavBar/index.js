@@ -4,10 +4,9 @@ import CartWidget from '../CartWidget'
 const NavBar = (props) => {
 
       return (
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">MGO</a>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="#">MGO</a>
             <div className="leftNav">
               <button>Home</button>
 

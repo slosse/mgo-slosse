@@ -6,7 +6,9 @@ const App =()=> {
 
   return (
     <div className="App">
-      <NavBar/>
+      <header>
+        <NavBar/> 
+      </header>
       <ItemListContainer/>
       
     </div>

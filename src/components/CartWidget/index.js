@@ -1,9 +1,7 @@
-import './style.css'
-
 const CartWidget = (props) => {
     return(
         <button>
-            <img src="/assets/cart.svg" class="cartWidget"/>
+            <img src="/assets/cart.svg" className="cartWidget"/>
             {props.quantity}
         </button>
   

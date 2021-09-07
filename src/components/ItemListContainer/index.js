@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react'
 import ItemCount from '../ItemCount'
 import ItemList from '../ItemList'
-import './style.css'
+import './styles.css'
 
 const products = [
     { id: 1, name: 'Pugliese', description: 'Magia', stock: 12 },
