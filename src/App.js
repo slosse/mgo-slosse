@@ -1,4 +1,5 @@
 import ItemListContainer from './components/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer'
 import NavBar from './components/NavBar'
 import './App.css'
 
@@ -9,7 +10,8 @@ const App =()=> {
       <header>
         <NavBar/> 
       </header>
-      <ItemListContainer/>
+
+      <ItemDetailContainer itemId={1}/>
       
     </div>
   )

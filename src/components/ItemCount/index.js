@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-const ItemCount = ()=> {
+const ItemCount = ({product})=> {
 
     const [quantity,setQuantity] = useState(0)
     const [alert,setAlert] = useState("")
@@ -25,36 +25,26 @@ const ItemCount = ()=> {
         
     }
 
-    useEffect(()=>{
-        console.log("despues del primer renderizado")
-        return () =>{
-
-            console.log("antes de desmontar el componente")
-        }
-    
-    },[])
-    
     return(
-        <div>
+        <div align="center">
             
         <table >
         <tbody>
             <tr>
-                <td align="center" colSpan="3">Camisa</td>
+                <td align="center" colSpan="3">{product.name}</td>
             </tr>
             <tr>
-                <td align="left"><button onClick={()=>onRemove() }>-</button></td>
+                <td align="left"><button className="btn btn-primary" onClick={()=>onRemove() }>-</button></td>
                 <td align="center">{quantity}</td>
-                <td align="right"><button onClick={()=>onAdd() }>+</button></td>
+                <td align="right"><button className="btn btn-primary" onClick={()=>onAdd() }>+</button></td>
             </tr>
             <tr>
-                <td align="center" colSpan="3"><button onClick={()=>setQuantity(0)}>Agregar al carrito</button></td>
+                <td align="center" colSpan="3"><button className="btn btn-primary" onClick={()=>setQuantity(0)}>Agregar al carrito</button></td>
             </tr>
-            <tr>
-                <td align="center" colSpan="3"> {alert !="" ? <h3 style={{color:'red'}}>alert </h3> :"" }</td>
-            </tr>
+
             </tbody>
         </table>
+        {alert !="" ? <p style={{color:'red'}}>{alert} </p> :"" }
        
         </div>
     )

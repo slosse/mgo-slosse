@@ -1,5 +1,4 @@
 import { useState, useEffect} from 'react'
-import ItemCount from '../ItemCount'
 import ItemList from '../ItemList'
 import './styles.css'
 
@@ -22,17 +21,16 @@ const ItemListContainer = ()=> {
 
     useEffect(() => {
         const list = getList()
-        console.log(list)
+
         list.then(list => {
             setProducts(list)
         })
-    }, [])
 
+    }, [])
 
     return (
         <div className="ItemListContainer" >
             <ItemList products={products}/>
-            <ItemCount></ItemCount>
         </div>
     )    
     
