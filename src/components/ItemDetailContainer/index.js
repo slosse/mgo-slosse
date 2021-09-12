@@ -16,7 +16,6 @@ function getProductDetail(itemId) {
     })
 }
 
-
 const ItemDetailContainer = ({itemId}) => {
 
     const [productDetail, setProductDetail] = useState("")
@@ -24,7 +23,6 @@ const ItemDetailContainer = ({itemId}) => {
     useEffect(() => {
         
         const product = getProductDetail(itemId)
-
         product.then(product => {
             setProductDetail(product)
         })
