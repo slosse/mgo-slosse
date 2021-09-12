@@ -19,19 +19,21 @@ function getProductDetail(itemId) {
 const ItemDetailContainer = ({itemId}) => {
 
     const [productDetail, setProductDetail] = useState("")
+    const [loading, setLoading] = useState("Loading..")
 
     useEffect(() => {
         
         const product = getProductDetail(itemId)
         product.then(product => {
             setProductDetail(product)
+            setLoading("")
         })
 
     },[itemId])
 
     return (
         <div className='ItemDetailContainer' >
-            <ItemDetail product={productDetail} />
+            {loading!=""?loading:<ItemDetail product={productDetail} />}    
         </div>
     )
 }

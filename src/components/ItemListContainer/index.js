@@ -21,7 +21,7 @@ const ItemListContainer = ()=> {
 
     useEffect(() => {
         const list = getList()
-
+        
         list.then(list => {
             setProducts(list)
         })
