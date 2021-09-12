@@ -10,7 +10,7 @@ const App =()=> {
       <header>
         <NavBar/> 
       </header>
-
+     <ItemListContainer /> 
       <ItemDetailContainer itemId={1}/>
       
     </div>

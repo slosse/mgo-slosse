@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 
 const ItemCount = ({product})=> {
 
@@ -44,7 +44,7 @@ const ItemCount = ({product})=> {
 
             </tbody>
         </table>
-        {alert !="" ? <p style={{color:'red'}}>{alert} </p> :"" }
+        {alert !=="" ? <p style={{color:'red'}}>{alert} </p> :"" }
        
         </div>
     )

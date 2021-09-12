@@ -11,7 +11,7 @@ const products = [
 
 function getProductDetail(itemId) {
     return new Promise((resolve, reject) => {
-        const product = products.find(item => item.id ===itemId)
+        const product = products.find(item => item.id === itemId)
         setTimeout(() => resolve(product), 2000)
     })
 }
@@ -19,21 +19,22 @@ function getProductDetail(itemId) {
 
 const ItemDetailContainer = ({itemId}) => {
 
-    const [productDetail, setProductDetail] = useState({})
-    
+    const [productDetail, setProductDetail] = useState("")
+
     useEffect(() => {
-        const product = getProductDetail(itemId)
         
+        const product = getProductDetail(itemId)
+
         product.then(product => {
             setProductDetail(product)
         })
 
-    })
+    },[itemId])
 
-
-    return <div className='ItemDetailContainer' >
-        <ItemDetail product={productDetail} />
-
-    </div>
+    return (
+        <div className='ItemDetailContainer' >
+            <ItemDetail product={productDetail} />
+        </div>
+    )
 }
 export default ItemDetailContainer
