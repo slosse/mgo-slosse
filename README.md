@@ -1,4 +1,24 @@
-# Getting Started with Create React App
+# MGO
+
+Este proyecto se realiza en el marco del curso de React JS en Coder House. Es una web app de un E-Commerce.
+
+Se usa Bootstrap para algunos estilos y React Router para el routing.
+
+## Guia de istalacion
+
+Clonar el proyecto
+### `git clone https://github.com/slosse/mgo-slosse`
+
+## Instalar Bootstrap
+
+In the project directory, you can run:
+### `npm install bootstrap`
+
+## Instalar react-router-dom
+
+In the project directory, you can run:
+### `npm install react-router-dom`
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
