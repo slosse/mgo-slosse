@@ -1,20 +1,21 @@
 # MGO
 
-Este proyecto se realiza en el marco del curso de React JS en Coder House. Es una web app de un E-Commerce.
+This project is made to the React JS Course of Coder House. Is a E-Commer web app.
 
-Se usa Bootstrap para algunos estilos y React Router para el routing.
+The project use Bootstrap and Rect Router.
 
-## Guia de instalacion
 
-Clonar el proyecto
+## Installation guide
+
+Clone the project
 ### `git clone https://github.com/slosse/mgo-slosse`
 
-## Instalar Bootstrap
+## Install Bootstrap
 
 In the project directory, you can run:
 ### `npm install bootstrap`
 
-## Instalar react-router-dom
+## Install React Router
 
 In the project directory, you can run:
 ### `npm install react-router-dom`
