@@ -1,10 +1,10 @@
 import Item from "../Item"
 import 'bootstrap/dist/css/bootstrap.css'
 
-const ItemList = ({products}) => {
+const ItemList = ({products,categoryid}) => {
 
     if(products.length==0) {
-        return <h3>NO HAY PRODUCTOS PARA LA CATEGORIA ELEGIDA </h3>
+        return <h3>{`NO HAY PRODUCTOS PARA LA CATEGORIA ${categoryid} :(`} </h3>
     } 
 
      return (

@@ -1,10 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import ItemCount from '../ItemCount'
 
-const ItemDetail = ({ product }) => {
+const ItemDetail = ({ product,itemid }) => {
 
     if(product===undefined) {
-        return <h3>NO EXISTE EL PRODUCTO </h3>
+        return <h3>{`NO EXISTE EL PRODUCTO ${itemid} :(`}</h3>
     } 
     
     return (
