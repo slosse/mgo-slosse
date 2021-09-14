@@ -7,8 +7,10 @@ const NavBar = ({ categories }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container-fluid">
+        <Link to='/'>
+          <div className="navbar-brand" >MGO</div>
+        </Link>
 
-        <a className="navbar-brand" href="/">MGO</a>
         <div className="leftNav">
           <Link to='/'>
             <button >Home</button>
