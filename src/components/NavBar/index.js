@@ -20,7 +20,7 @@ const NavBar = ({ categories }) => {
         </div>
         <div className="rigthNav">
           
-          {categories.map(category => <Link key={category.id} to={`/categories/${category.id}`}><button className="btn btn-primary btn-sm">{category.description}</button></Link>)}
+          {categories.map(category => <Link key={category.id} to={`/category/${category.id}`}><button className="btn btn-primary btn-sm">{category.description}</button></Link>)}
           
           <button >Login</button>
           <Link to='/cart'>

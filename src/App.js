@@ -17,7 +17,7 @@ const App =()=> {
           <Route exact path='/'>
             <ItemListContainer />
           </Route>
-          <Route path='/categories/:category'>
+          <Route path='/category/:categoryid'>
             <ItemListContainer />
           </Route>
           <Route path='/about'>
