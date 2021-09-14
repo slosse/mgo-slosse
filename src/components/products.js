@@ -15,7 +15,7 @@ export function getProducts(category) {
     
     return new Promise((resolve, reject) => {
         
-        if(category==undefined) {
+        if(category===undefined) {
             setTimeout(() => resolve(products), 2000)
         } else {
             setTimeout(() => resolve(products.filter(prod =>prod.category === category)), 2000)
