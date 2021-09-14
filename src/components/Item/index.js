@@ -7,7 +7,7 @@ const Item = ({ product }) => {
 
         <li align="left" className="list-group-item" key={product.id}>
 
-            <img width="50" height="50" src={`/assets/${product.id}.jpg`} />
+            <img width="50" height="50" src={`/assets/${product.id}.jpg`} alt={product.name}/>
 
             {`Artista: ${product?.name} | Categoria: ${product?.category} | `}
             
