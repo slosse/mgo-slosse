@@ -5,20 +5,20 @@ import About from './components/About'
 import Cart from './components/Cart'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import './App.css'
-import {useState} from 'react'
+import { getCategories } from './components/products'
 
 const App =()=> {
-
-  const [categories,setCategories] = useState('')
 
   return (
     <BrowserRouter>
     <div className="App">
-        <NavBar /> 
+        <NavBar categories={getCategories()}/> 
         <Switch>
           <Route exact path='/'>
             <ItemListContainer />
-            
+          </Route>
+          <Route path='/categories/:category'>
+            <ItemListContainer />
           </Route>
           <Route path='/about'>
             <About />
@@ -26,9 +26,10 @@ const App =()=> {
           <Route path='/cart'>
             <Cart />
           </Route>
-          <Route path='/product/:itemid'>
+          <Route path='/item/:itemid'>
             <ItemDetailContainer />
           </Route>
+
         </Switch>
     </div>
     </BrowserRouter>

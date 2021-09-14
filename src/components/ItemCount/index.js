@@ -25,6 +25,11 @@ const ItemCount = ({product})=> {
         
     }
 
+    const onAddtoCart = () =>{
+        setQuantity(0)
+        setAlert("")
+    }
+
 
     
     return(
@@ -33,15 +38,12 @@ const ItemCount = ({product})=> {
         <table >
         <tbody>
             <tr>
-                <td align="center" colSpan="3">{product.name}</td>
-            </tr>
-            <tr>
                 <td align="left"><button className="btn btn-primary" onClick={()=>onRemove() }>-</button></td>
                 <td align="center">{quantity}</td>
                 <td align="right"><button className="btn btn-primary" onClick={()=>onAdd() }>+</button></td>
             </tr>
             <tr>
-                <td align="center" colSpan="3"><button className="btn btn-primary" onClick={()=>setQuantity(0)}>Agregar al carrito</button></td>
+                <td align="center" colSpan="3"><button className="btn btn-primary" onClick={()=>onAddtoCart()}>Agregar al carrito</button></td>
             </tr>
 
             </tbody>

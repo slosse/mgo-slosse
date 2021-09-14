@@ -9,9 +9,9 @@ const Item = ({ product }) => {
 
             <img width="50" height="50" src={`/assets/${product.id}.jpg`} />
 
-            {`Artista: ${product?.name} / Descripción: ${product?.description}`}
+            {`Artista: ${product?.name} | Categoria: ${product?.category} | `}
             
-            <NavLink to={`/product/${product?.id}`} >
+            <NavLink to={`/item/${product.id}`} >
                 Comprar
             </NavLink>
 

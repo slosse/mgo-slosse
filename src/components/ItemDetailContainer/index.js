@@ -2,24 +2,24 @@ import ItemDetail from '../ItemDetail'
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
 import './styles.css'
-import getProducts from '../products'
+import { getProductById } from '../products'
 
 const ItemDetailContainer = () => {
 
-    const [productDetail, setProductDetail] = useState(undefined)
+    const [product, setProduct] = useState(undefined)
     const [loading, setLoading] = useState(true)
     const {itemid} = useParams()
     
     useEffect(() => {
         
-        const products = getProducts()
-        products.then(result => {
-            const product = result.find(prod =>prod.id == itemid)
-            setProductDetail(product)
+        getProductById(itemid).then(result => {
+            setProduct(result)
             setLoading(false)
-        })
+            }
+        )
+
         return (() => {
-            setProductDetail(undefined)
+            setProduct(undefined)
         }
         )
 
@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className='ItemDetailContainer' >
-            {loading?"Loading..":<ItemDetail product={productDetail} />}    
+            {loading?"Loading..":<ItemDetail product={product} />}    
         </div>
     )
 }
