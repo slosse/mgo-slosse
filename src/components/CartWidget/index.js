@@ -1,6 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.css'
+
 const CartWidget = (props) => {
     return(
-        <button>
+        <button >
             <img src="/assets/cart.svg" className="cartWidget"/>
             {props.quantity}
         </button>

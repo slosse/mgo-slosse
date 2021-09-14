@@ -1,39 +1,33 @@
-import ItemDetail from "../ItemDetail"
-import { useEffect, useState } from "react"
+import ItemDetail from '../ItemDetail'
+import { useEffect, useState } from 'react'
+import {useParams} from 'react-router-dom'
 import './styles.css'
+import getProducts from '../products'
 
-const products = [
-    { id: 1, name: 'Pugliese', description: 'Magia', stock: 12, price: 1700 },
-    { id: 2, name: 'Troilo', description: 'Aventura', stock: 10, price: 1340 },
-    { id: 3, name: 'Darienzo', description: 'Rock & Roll', stock: 15, price: 1500 },
-    { id: 4, name: 'Di Sarli', description: 'Soñar', stock: 20, price: 1250 },
-]
+const ItemDetailContainer = () => {
 
-function getProductDetail(itemId) {
-    return new Promise((resolve, reject) => {
-        const product = products.find(item => item.id === itemId)
-        setTimeout(() => resolve(product), 2000)
-    })
-}
-
-const ItemDetailContainer = ({itemId}) => {
-
-    const [productDetail, setProductDetail] = useState("")
-    const [loading, setLoading] = useState("Loading..")
-
+    const [productDetail, setProductDetail] = useState(undefined)
+    const [loading, setLoading] = useState(true)
+    const {itemid} = useParams()
+    
     useEffect(() => {
         
-        const product = getProductDetail(itemId)
-        product.then(product => {
+        const products = getProducts()
+        products.then(result => {
+            const product = result.find(prod =>prod.id == itemid)
             setProductDetail(product)
-            setLoading("")
+            setLoading(false)
         })
+        return (() => {
+            setProductDetail(undefined)
+        }
+        )
 
-    },[itemId])
+    },[itemid])
 
     return (
         <div className='ItemDetailContainer' >
-            {loading!=""?loading:<ItemDetail product={productDetail} />}    
+            {loading?"Loading..":<ItemDetail product={productDetail} />}    
         </div>
     )
 }

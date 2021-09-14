@@ -46,7 +46,7 @@ const ItemCount = ({product})=> {
 
             </tbody>
         </table>
-        {alert !="" ? <p style={{color:'red'}}>{alert} </p> :"" }
+        {alert !=="" ? <p style={{color:'red'}}>{alert} </p> :"" }
        
         </div>
     )
