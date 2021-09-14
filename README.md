@@ -4,7 +4,7 @@ Este proyecto se realiza en el marco del curso de React JS en Coder House. Es un
 
 Se usa Bootstrap para algunos estilos y React Router para el routing.
 
-## Guia de istalacion
+## Guia de instalacion
 
 Clonar el proyecto
 ### `git clone https://github.com/slosse/mgo-slosse`
