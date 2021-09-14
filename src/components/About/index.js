@@ -1,7 +1,7 @@
 const About = () => (
     <div>
       <h1>Enrique Slosse</h1>
-      <p>Quique
+      <p>Proyecto desarrollado en el marco del curso de React JS en Coder House. Se trata de un E-Commerce.
       </p>
     </div>
   )
