@@ -14,9 +14,6 @@ const App =()=> {
     <div className="App">
         <NavBar categories={getCategories()}/> 
         <Switch>
-          <Route exact path='/'>
-            <ItemListContainer />
-          </Route>
           <Route path='/category/:categoryid'>
             <ItemListContainer />
           </Route>
@@ -29,8 +26,11 @@ const App =()=> {
           <Route path='/item/:itemid'>
             <ItemDetailContainer />
           </Route>
-
+          <Route path='/'>
+        <ItemListContainer />
+        </Route>
         </Switch>
+
     </div>
     </BrowserRouter>
   )
