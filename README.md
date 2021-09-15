@@ -1,8 +1,8 @@
 # MGO
 
-This project is made to the React JS Course of Coder House. Is a E-Commerce web app.
+This project is made for the React JS Course of Coder House. Is a E-Commerce web app.
 
-The project use Bootstrap and Rect Router.
+The project uses Bootstrap and Rect Router.
 
 
 ## Installation guide
