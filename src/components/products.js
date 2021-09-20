@@ -1,9 +1,9 @@
 const products = [
-    { id: 1, name: 'Pugliese', category: 'tango', stock: 12, price: 1700 },
+    { id: 1, name: 'Pugliese', category: 'tango', stock: 5, price: 1700 },
     { id: 2, name: 'Troilo', category: 'tango', stock: 10, price: 1340 },
     { id: 3, name: 'Darienzo', category: 'tango', stock: 15, price: 1500 },
     { id: 4, name: 'Di Sarli', category: 'tango', stock: 20, price: 1250 },
-    { id: 5, name: 'Los redonditos de ricota', category: 'rock', stock: 12, price: 1700 },
+    { id: 5, name: 'Los redonditos de ricota', category: 'rock', stock: 5, price: 1700 },
     { id: 6, name: 'Los abuelos de la nada', category: 'rock', stock: 10, price: 1340 },
     { id: 7, name: 'Soda stereo', category: 'rock', stock: 15, price: 1500 },
     { id: 8, name: 'Bersuit Vergarabat', category: 'rock', stock: 20, price: 1250 }
@@ -35,4 +35,13 @@ export function getProductById(id) {
 
 export function getCategories()  {
     return categories
+}
+
+export function getStockByProduct(id) {
+    
+    return new Promise((resolve, reject) => {
+        const product = products.find(prod =>prod.id == id)
+        setTimeout(() => resolve(product.stock), 2000)
+    })
+
 }

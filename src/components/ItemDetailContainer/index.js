@@ -17,11 +17,11 @@ const ItemDetailContainer = () => {
             setLoading(false)
             }
         )
-
+/*
         return (() => {
             setProduct(undefined)
         }
-        )
+        )*/
 
     },[itemid])
 
