@@ -30,8 +30,7 @@ export const CartContextProvider = ({ children }) => {
 
         } catch (e) {
             if (e !== BreakException) throw e;
-            console.log("EXCEPTION")
-
+            
         } 
 
         const newItem = [{ 'id': id, 'price': price, 'name': name, 'quantity': newQuantity }]
