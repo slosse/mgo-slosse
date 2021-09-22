@@ -3,7 +3,7 @@ import ItemCount from '../ItemCount'
 import { useContext, useState } from 'react'
 import { getStockByProduct } from '../products'
 import CartContext from '../../context/CartContext'
-
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({ product,itemid }) => {
 
@@ -12,6 +12,7 @@ const ItemDetail = ({ product,itemid }) => {
     const [stock,setStock] = useState(product.stock)
     const [nostock,setNostock] = useState(false)
     const [loading,setLoading] = useState(false)
+    const [addToCart,setAddToCart] = useState(false)
     
     const onAdd= ()=> {
         setLoading(true)
@@ -49,7 +50,7 @@ const ItemDetail = ({ product,itemid }) => {
         }
         
         addItem(product.id,product.price,product.name, quantity)
-        
+        setAddToCart(true)
     }
 
     if(product===undefined) {
@@ -66,8 +67,12 @@ const ItemDetail = ({ product,itemid }) => {
                 <h2 className="card-title">${product?.price}</h2>
             </div>
             {`Stock actual: ${stock-quantity}`}
+            {!addToCart?<ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} product={product} quantity={quantity} stock={stock} nostock={nostock} loading={loading}  />:
+            <Link to={`/cart`} >
+                <button className="btn btn-primary" >Finalizar la compra</button>
+            </Link>
+            }
             
-            <ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} product={product} quantity={quantity} stock={stock} nostock={nostock} loading={loading}  />
             
             {nostock && !loading? <p style={{color:'red'}}>Se ha alcanzado el stock maximo</p> :"" }
             {loading ? <p>Estamos verificando stock..</p> :"" }

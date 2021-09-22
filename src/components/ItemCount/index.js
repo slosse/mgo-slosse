@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css'
 
 const ItemCount = ({quantity,onAdd,onRemove,onaddtoCart})=> {
 
@@ -14,9 +15,9 @@ const ItemCount = ({quantity,onAdd,onRemove,onaddtoCart})=> {
             </tr>
             <tr>
                 <td align="center" colSpan="3">
-                    <Link to={`/cart`} >
-                        <button className="btn btn-primary" onClick={e =>onaddtoCart(e)}>Agregar al carrito</button>
-                    </Link>
+                    
+                <button className="btn btn-primary" onClick={e =>onaddtoCart(e)}>Agregar al carrito</button>
+  
                 </td>
             </tr>
 
