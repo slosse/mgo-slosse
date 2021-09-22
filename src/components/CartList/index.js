@@ -1,19 +1,29 @@
 
 import CartItem from "../CartItem"
 import 'bootstrap/dist/css/bootstrap.css'
-import { useContext } from "react"
-import CartContext from "../../context/CartContext"
 
-const CartList = () => {
 
-    const { products } = useContext(CartContext)
+const CartList = ({products}) => {
 
     return (
-        <ul className="list-group">
+        <table>
+            <thead>
+            <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col"></th>
+    </tr>
+
+            </thead>
+            <tbody>
             {products.map(product =>
+                <tr>
                 <CartItem product={product} />
+                </tr>
             )}
-        </ul>
+            </tbody>
+        </table>
     )
 }
 export default CartList

@@ -66,7 +66,9 @@ const ItemDetail = ({ product,itemid }) => {
                 <h2 className="card-title">${product?.price}</h2>
             </div>
             {`Stock actual: ${stock-quantity}`}
+            
             <ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} product={product} quantity={quantity} stock={stock} nostock={nostock} loading={loading}  />
+            
             {nostock && !loading? <p style={{color:'red'}}>Se ha alcanzado el stock maximo</p> :"" }
             {loading ? <p>Estamos verificando stock..</p> :"" }
         </div>

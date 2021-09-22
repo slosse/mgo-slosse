@@ -7,13 +7,16 @@ const CartItem = ({ product }) => {
     const { removeItem } = useContext(CartContext)
 
     return (
-        <li align="center" className="list-group-item" key={product.id}>
-            {product.name}
-            $ {product.price}
-             Cantidad: {product.quantity}
-            <button onClick={() => removeItem(product.id)} type="button" class="btn btn-link">Eliminar</button>
-        </li>
-    )
+        <>
+            <td>{`${product.name}`}</td>
+            <td>{`$${product.price}`}</td>
+            <td>{`${product.quantity}`}</td>
+            <td><button onClick={() => removeItem(product.id)} type="button" class="btn btn-link">Eliminar</button></td>
+        </>
+
+
+
+            )
 }
 
-export default CartItem
+            export default CartItem
