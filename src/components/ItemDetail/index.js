@@ -7,7 +7,7 @@ import CartContext from '../../context/CartContext'
 
 const ItemDetail = ({ product,itemid }) => {
 
-    const {addItem,removeItem} = useContext(CartContext)
+    const {addItem} = useContext(CartContext)
     const [quantity,setQuantity] = useState(0)
     const [stock,setStock] = useState(product.stock)
     const [nostock,setNostock] = useState(false)
@@ -43,15 +43,12 @@ const ItemDetail = ({ product,itemid }) => {
     }
 
     const onaddtoCart = (e) =>{
-        if(quantity===0) {
+        if(quantity===0 || loading) {
             e.preventDefault();
             return
         }
         
         addItem(product.id,product.price,product.name, quantity)
-        /*setTimeout(() => {
-            removeItem(product.id)
-        }, 3000)*/
         
     }
 
