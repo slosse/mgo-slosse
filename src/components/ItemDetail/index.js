@@ -1,11 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import ItemCount from '../ItemCount'
-import Cart from '../Cart'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { getStockByProduct } from '../products'
+import CartContext from '../../context/CartContext'
+
 
 const ItemDetail = ({ product,itemid }) => {
 
+    const {addItem,removeItem} = useContext(CartContext)
     const [quantity,setQuantity] = useState(0)
     const [stock,setStock] = useState(product.stock)
     const [nostock,setNostock] = useState(false)
@@ -43,7 +45,13 @@ const ItemDetail = ({ product,itemid }) => {
     const onaddtoCart = (e) =>{
         if(quantity===0) {
             e.preventDefault();
+            return
         }
+        addItem(product.id,quantity)
+        /*setTimeout(() => {
+            removeItem(product.id)
+        }, 3000)*/
+        
     }
 
     if(product===undefined) {

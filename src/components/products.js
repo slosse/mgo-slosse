@@ -9,6 +9,8 @@ const products = [
     { id: 8, name: 'Bersuit Vergarabat', category: 'rock', stock: 20, price: 1250 }
 ]
 
+const time = 0
+
 const categories = [{id:'tango',description:'Tango'},{id:'rock',description:'Rock'},{id:'jazz',description:'Jazz'}]
 
 export function getProducts(category) {
@@ -16,9 +18,9 @@ export function getProducts(category) {
     return new Promise((resolve, reject) => {
         
         if(category===undefined) {
-            setTimeout(() => resolve(products), 2000)
+            setTimeout(() => resolve(products), time)
         } else {
-            setTimeout(() => resolve(products.filter(prod =>prod.category === category)), 2000)
+            setTimeout(() => resolve(products.filter(prod =>prod.category === category)), time)
         }
         
     })
@@ -28,7 +30,7 @@ export function getProductById(id) {
     
     return new Promise((resolve, reject) => {
         const product = products.find(prod =>prod.id == id)
-        setTimeout(() => resolve(product), 2000)
+        setTimeout(() => resolve(product), time)
     })
 }
 
@@ -41,7 +43,7 @@ export function getStockByProduct(id) {
     
     return new Promise((resolve, reject) => {
         const product = products.find(prod =>prod.id == id)
-        setTimeout(() => resolve(product.stock), 2000)
+        setTimeout(() => resolve(product.stock), time)
     })
 
 }

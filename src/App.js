@@ -3,16 +3,25 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import NavBar from './components/NavBar'
 import About from './components/About'
 import Cart from './components/Cart'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css'
 import { getCategories } from './components/products'
+import { useState } from 'react'
+import { UserContext } from './context/UserContext'
+import { CartContextProvider } from './context/CartContext'
 
-const App =()=> {
+
+const App = () => {
+  const [user, setUser] = useState('quique');
 
   return (
-    <BrowserRouter>
+
     <div className="App">
-        <NavBar categories={getCategories()}/> 
+      <CartContextProvider>
+      <BrowserRouter>
+        <UserContext.Provider value={user}>
+          <NavBar categories={getCategories()} />
+        </UserContext.Provider>
         <Switch>
           <Route path='/category/:categoryid'>
             <ItemListContainer />
@@ -27,12 +36,17 @@ const App =()=> {
             <ItemDetailContainer />
           </Route>
           <Route path='/'>
-        <ItemListContainer />
-        </Route>
+            <ItemListContainer />
+
+          </Route>
         </Switch>
 
+      </BrowserRouter>
+      </CartContextProvider>   
+
     </div>
-    </BrowserRouter>
+
+
   )
 }
 
