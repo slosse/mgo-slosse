@@ -7,7 +7,7 @@ export const CartContextProvider = ({ children }) => {
    
     var BreakException = {}
 
-    const addItem = (id, quantity) => {
+    const addItem = (id, price, name, quantity) => {
 
         var newQuantity = quantity
         var vProducts = [...products]
@@ -34,7 +34,7 @@ export const CartContextProvider = ({ children }) => {
 
         } 
 
-        const newItem = [{ 'id': id, 'quantity': newQuantity }]
+        const newItem = [{ 'id': id, 'price': price, 'name': name, 'quantity': newQuantity }]
         const newProducts = [...vProducts, ...newItem]
         const myJSON = JSON.stringify(newProducts)
 

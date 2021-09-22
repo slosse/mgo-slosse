@@ -47,7 +47,8 @@ const ItemDetail = ({ product,itemid }) => {
             e.preventDefault();
             return
         }
-        addItem(product.id,quantity)
+        
+        addItem(product.id,product.price,product.name, quantity)
         /*setTimeout(() => {
             removeItem(product.id)
         }, 3000)*/
