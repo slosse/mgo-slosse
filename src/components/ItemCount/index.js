@@ -16,7 +16,7 @@ const ItemCount = ({quantity,onAdd,onRemove,onaddtoCart})=> {
             <tr>
                 <td align="center" colSpan="3">
                     
-                <button className="btn btn-primary" onClick={e =>onaddtoCart(e)}>Agregar al carrito</button>
+                <button className="btn btn-primary" onClick={()=>onaddtoCart()}>Agregar al carrito</button>
   
                 </td>
             </tr>

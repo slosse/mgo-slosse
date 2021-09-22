@@ -9,7 +9,7 @@ const products = [
     { id: 8, name: 'Bersuit Vergarabat', category: 'rock', stock: 20, price: 1250 }
 ]
 
-const time = 2000
+const time = 1000
 
 const categories = [{id:'tango',description:'Tango'},{id:'rock',description:'Rock'},{id:'jazz',description:'Jazz'}]
 
