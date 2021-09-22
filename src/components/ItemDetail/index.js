@@ -26,7 +26,7 @@ const ItemDetail = ({ product, itemid }) => {
             if (quantity >= stock) {
                 setLoading(false)
                 setNostock(true)
-                setTimeout(function(){ setNostock(false); }, 1000);
+                setTimeout(function(){ setNostock(false); }, 2000);
                 
                 return
             }
@@ -71,7 +71,7 @@ const ItemDetail = ({ product, itemid }) => {
 
             {!addToCart ? 
                 <div>
-                    <ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} product={product} quantity={quantity} stock={stock} nostock={nostock} loading={loading} /> 
+                    <ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} quantity={quantity} /> 
                     {nostock? <p style={{ color: 'red' }}>Se ha alcanzado el stock maximo</p> : ""}
                 </div>
                 :
