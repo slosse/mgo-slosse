@@ -2,8 +2,7 @@
 import CartItem from "../CartItem"
 import 'bootstrap/dist/css/bootstrap.css'
 
-
-const CartList = ({ products }) => {
+const CartList = ({ products, total }) => {
 
     return (
         <table>
@@ -26,7 +25,7 @@ const CartList = ({ products }) => {
                 
             <tr>
 
-                    <tr colspan='4'>Total</tr>
+                    <tr colspan='4'>Total $ {total}</tr>
                 </tr>
         </table>
     )

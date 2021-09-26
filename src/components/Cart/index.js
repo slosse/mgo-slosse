@@ -5,12 +5,12 @@ import { useContext } from 'react'
 
 const Cart = () => {
 
-    const { products } = useContext(CartContext)
+    const { products, getTotal } = useContext(CartContext)
 
     return (
         <div className="Cart">
             <h1>Cart</h1>
-            {products.length===0?"El carrito está vacío":<CartList products={products}/>}
+            {products.length===0?"El carrito está vacío":<CartList products={products} total={getTotal()}/>}
             
         </div>
     )
