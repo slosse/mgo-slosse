@@ -7,21 +7,18 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css'
 import { getCategories } from './components/products'
 import { useState } from 'react'
-import { UserContext } from './context/UserContext'
 import { CartContextProvider } from './context/CartContext'
 
-
 const App = () => {
-  const [user, setUser] = useState('quique');
 
   return (
 
     <div className="App">
       <CartContextProvider>
       <BrowserRouter>
-        <UserContext.Provider value={user}>
+
           <NavBar categories={getCategories()} />
-        </UserContext.Provider>
+
         <Switch>
           <Route path='/category/:categoryid'>
             <ItemListContainer />

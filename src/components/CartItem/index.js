@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 const CartItem = ({ product }) => {
 
-    const { removeItem } = useContext(CartContext)
+    const { removeItem, addItem } = useContext(CartContext)
 
     return (
         <>

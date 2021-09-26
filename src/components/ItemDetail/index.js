@@ -72,7 +72,7 @@ const ItemDetail = ({ product, itemid }) => {
             {!addToCart ? 
                 <div>
                     <ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} quantity={quantity} /> 
-                    {nostock? <p style={{ color: 'red' }}>Se ha alcanzado el stock maximo</p> : ""}
+                    {nostock && <p style={{ color: 'red' }}>Se ha alcanzado el stock maximo</p>}
                 </div>
                 :
                 <Link to={`/cart`} >
@@ -80,7 +80,7 @@ const ItemDetail = ({ product, itemid }) => {
                 </Link>
             }
             <div>
-                {loading ? <p>Estamos verificando stock..</p> : ""}
+                {loading && <p>Estamos verificando stock..</p>}
             </div>
         </div>
 
