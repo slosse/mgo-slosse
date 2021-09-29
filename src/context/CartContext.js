@@ -47,7 +47,7 @@ export const CartContextProvider = ({ children }) => {
         setProducts(newProducts)
     }
 
-    const clear = () => {
+    const empty = () => {
         setProducts([])
     }
 
@@ -75,7 +75,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{products,addItem, removeItem, clear, isInCart, getQuantity,getTotal}}>
+        <Context.Provider value={{products,addItem, removeItem, empty, isInCart, getQuantity,getTotal}}>
             {children}
         </Context.Provider>
 

@@ -1,7 +1,9 @@
 .Cart {
-    
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 80vh;
+    align-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
   }

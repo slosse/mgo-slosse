@@ -5,8 +5,6 @@ import About from './components/About'
 import Cart from './components/Cart'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css'
-import { getCategories } from './components/products'
-import { useState } from 'react'
 import { CartContextProvider } from './context/CartContext'
 
 const App = () => {
@@ -17,7 +15,7 @@ const App = () => {
       <CartContextProvider>
       <BrowserRouter>
 
-          <NavBar categories={getCategories()} />
+          <NavBar />
 
         <Switch>
           <Route path='/category/:categoryid'>
@@ -34,8 +32,11 @@ const App = () => {
           </Route>
           <Route path='/'>
             <ItemListContainer />
-
           </Route>
+          <Route path='/finPurchase'>
+          </Route>
+
+
         </Switch>
 
       </BrowserRouter>
