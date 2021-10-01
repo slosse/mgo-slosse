@@ -9,11 +9,8 @@ import {CartContextProvider} from './context/CartContext'
 import ConfirmOrder from './components/ConfirmOrder'
 import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
-import { useContext } from 'react'
-import UserContext from './context/UserContext'
 
 const App = () => {
-  const {user} = useContext(UserContext) 
 
   return (
 
@@ -28,13 +25,13 @@ const App = () => {
             <Route path='/about'>
               <About />
             </Route>
-            <PrivateRoute path='/cart' user={user}>
+            <PrivateRoute path='/cart'>
               <Cart />
             </PrivateRoute>
             <Route path='/item/:itemid'>
               <ItemDetailContainer />
             </Route>
-            <PrivateRoute path='/confirmOrder' user={user}>
+            <PrivateRoute path='/confirmOrder'>
               <ConfirmOrder />
             </PrivateRoute>
             <Route path="/login">
