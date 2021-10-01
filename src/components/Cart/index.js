@@ -1,25 +1,29 @@
-import './styles.css'
+import "./styles.css"
 import CartList from '../CartList'
 import CartContext from "../../context/CartContext"
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
     
-    const { products, getTotal } = useContext(CartContext)
-
-    const finPurchase = () => {
-        const cart = {buyer: {name: 'Enrique', phone: '1169999845', email: 'enriqueslosse@gmail.com' },
-            items: products, total: getTotal() }
-    } 
-
+    const { products } = useContext(CartContext)
+    
     return (
         <div className="Cart">
             <h1>Mi compra</h1>
-            {products.length===0?"El carrito está vacío":<CartList />}
-            <Link to={`/finPurchase`} >
-                    <button className="btn btn-primary" >Finalizar la compra</button>
-            </Link>
+            {products.length===0 &&
+                "El carrito está vacío"
+            }
+            {products.length>0 &&
+                <>
+                    <CartList />
+                    <Link to={`/confirmOrder`} >
+                        <button className="btn btn-primary">Finalizar la compra</button>
+                    </Link>
+                </>
+            }
+
+
         </div>
     )
 }

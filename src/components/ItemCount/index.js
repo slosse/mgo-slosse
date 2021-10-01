@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 
 const ItemCount = ({quantity,onAdd,onRemove,onaddtoCart})=> {

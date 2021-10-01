@@ -5,42 +5,47 @@ import About from './components/About'
 import Cart from './components/Cart'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css'
-import { CartContextProvider } from './context/CartContext'
+import {CartContextProvider} from './context/CartContext'
+import ConfirmOrder from './components/ConfirmOrder'
+import Login from './components/Login'
+import PrivateRoute from './components/PrivateRoute'
+import { useContext } from 'react'
+import UserContext from './context/UserContext'
 
 const App = () => {
+  const {user} = useContext(UserContext) 
 
   return (
 
     <div className="App">
       <CartContextProvider>
-      <BrowserRouter>
-
+        <BrowserRouter>
           <NavBar />
-
-        <Switch>
-          <Route path='/category/:categoryid'>
-            <ItemListContainer />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <Route path='/cart'>
-            <Cart />
-          </Route>
-          <Route path='/item/:itemid'>
-            <ItemDetailContainer />
-          </Route>
-          <Route path='/'>
-            <ItemListContainer />
-          </Route>
-          <Route path='/finPurchase'>
-          </Route>
-
-
-        </Switch>
-
-      </BrowserRouter>
-      </CartContextProvider>   
+          <Switch>
+            <Route path='/category/:categoryid'>
+              <ItemListContainer />
+            </Route>
+            <Route path='/about'>
+              <About />
+            </Route>
+            <PrivateRoute path='/cart' user={user}>
+              <Cart />
+            </PrivateRoute>
+            <Route path='/item/:itemid'>
+              <ItemDetailContainer />
+            </Route>
+            <PrivateRoute path='/confirmOrder' user={user}>
+              <ConfirmOrder />
+            </PrivateRoute>
+            <Route path="/login">
+              <Login/>
+            </Route>
+            <Route path='/'>
+              <ItemListContainer />
+            </Route>
+          </Switch>
+        </BrowserRouter>
+      </CartContextProvider>
 
     </div>
 

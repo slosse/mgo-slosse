@@ -10,7 +10,7 @@ import { db } from '../../services/firebase'
 
 const NavBar = () => {
 
-  const { user, login, logout } = useContext(UserContext)
+  const { user, logout } = useContext(UserContext)
   const { getQuantity } = useContext(CartContext)
   const [categories, setCategories] = useState([])
   
@@ -47,7 +47,7 @@ const NavBar = () => {
 
           {categories.map(category => <Link key={category.id} to={`/category/${category.description}`}><button className="btn btn-primary btn-sm">{category.description}</button></Link>)}
           {user}
-          {user ? <button onClick={() => logout()}>Logout</button> : <button onClick={() => login()}>Login</button>}
+          {user ? <button onClick={() => logout()}>Logout</button> : <Link to="/login"><button>Login</button></Link>}
           {getQuantity() > 0 && <Link to='/cart'><CartWidget quantity={getQuantity()} /></Link>}
 
 

@@ -35,8 +35,6 @@ export const CartContextProvider = ({ children }) => {
 
         const newItem = [{ 'id': id, 'price': price, 'name': name, 'quantity': newQuantity }]
         const newProducts = [...vProducts, ...newItem]
-        const myJSON = JSON.stringify(newProducts)
-
         setProducts(newProducts)
 
     }
@@ -47,7 +45,7 @@ export const CartContextProvider = ({ children }) => {
         setProducts(newProducts)
     }
 
-    const empty = () => {
+    const emptyCart = () => {
         setProducts([])
     }
 
@@ -75,7 +73,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{products,addItem, removeItem, empty, isInCart, getQuantity,getTotal}}>
+        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal}}>
             {children}
         </Context.Provider>
 

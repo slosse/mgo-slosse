@@ -4,21 +4,18 @@ import { useContext } from 'react'
 
 const CartItem = ({ product }) => {
 
-    const { removeItem, addItem } = useContext(CartContext)
+    const { removeItem } = useContext(CartContext)
 
     return (
 
-        <tr>
+        <tr > 
             <td>{`${product.name}`}</td>
             <td>{`$${product.price}`}</td>
             <td>{`${product.quantity}`}</td>
             <td>{`$${product.quantity*product.price}`}</td>
-            <td><button onClick={() => removeItem(product.id)} type="button" class="btn btn-link">Eliminar</button></td>
+            <td><button onClick={() => removeItem(product.id)} type="button" className="btn btn-link">Eliminar</button></td>
         </tr>
-
-
-
-            )
+    )
 }
 
             export default CartItem

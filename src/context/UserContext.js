@@ -6,10 +6,10 @@ const time = 1000
 export const UserContextProvider = ({children}) => {
     const [user,setUser] = useState(undefined)
 
-    const login = () => {
+    const login = (objUser) => {
         console.log("login..")
         return new Promise((resolve,reject) =>{
-            setTimeout(()=>resolve(setUser('quique')),time)
+            setTimeout(()=>resolve(setUser(objUser.user)),time)
         })
     }
 
