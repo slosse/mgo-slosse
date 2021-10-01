@@ -14,7 +14,7 @@ const App = () => {
 
   return (
 
-    <div className="App">
+    <div className='App'>
       <CartContextProvider>
         <BrowserRouter>
           <NavBar />
@@ -34,7 +34,7 @@ const App = () => {
             <PrivateRoute path='/confirmOrder'>
               <ConfirmOrder />
             </PrivateRoute>
-            <Route path="/login">
+            <Route path='/login'>
               <Login/>
             </Route>
             <Route path='/'>
