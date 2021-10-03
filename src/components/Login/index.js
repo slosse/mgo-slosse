@@ -1,49 +1,49 @@
 import "./styles.css"
 import UserContext from '../../context/UserContext'
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useHistory } from 'react-router-dom'
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider  } from "firebase/auth";
 
 const Login = () => {
-    const { user, login, logout } = useContext(UserContext)
-    const [vUser, setvUser] = useState('')
-    const [vPassword, setvPassword] = useState('')
+    const { login } = useContext(UserContext)
     const history = useHistory()
 
-    const handleLogin = (event) => {
-        event.preventDefault()
+    const auth = getAuth();
+    
+    const handleLogin = (provider) => {
 
-        const objUser = {
-            user: vUser,
-            password: vPassword
-        }
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                const user = result.user.displayName;
+                login(user)
+                history.goBack()
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.email;
+                console.log(error.message)
+                const credential = GoogleAuthProvider.credentialFromError(error);
+            })
 
-        login(objUser)
-        history.goBack()
     }
+
 
     return (
         <div className="Login">
-            Login
+            <h3>Login</h3>
             <table>
                 <tbody>
-                    <tr>
-                        <td>Usuario</td>
-                        <td>
-                            <input type="text" id="user" name="user" size="15" 
-                            value={vUser} onChange={({ target }) => setvUser(target.value)}/>
+                     <tr>
+                        <td >
+                            <button className="btn btn-primary" onClick={() => handleLogin(new GoogleAuthProvider())}>Ingresar con Gmail</button>
                         </td>
                     </tr>
                     <tr>
-                        <td>Password</td>
-                        <td>
-                        <input type="password" id="password" name="password" required size="15" 
-                         value={vPassword} onChange={({ target }) => setvPassword(target.value)}/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colSpan="2">
-                            <button className="btn btn-primary" onClick={(target) => handleLogin(target)  }>Ingresar</button>
+                        <td >
+                            <button className="btn btn-primary" onClick={() => handleLogin(new FacebookAuthProvider())}>Ingresar con Facebook</button>
                         </td>
                     </tr>
                 </tbody>
@@ -53,3 +53,6 @@ const Login = () => {
 }
 
 export default Login
+
+
+

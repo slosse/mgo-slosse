@@ -6,7 +6,7 @@ import UserContext from '../../context/UserContext'
 import CartContext from '../../context/CartContext'
 import { getDocs,collection } from '@firebase/firestore'
 import { db } from '../../services/firebase'
-
+import { getAuth, signOut } from "firebase/auth";
 
 const NavBar = () => {
 
@@ -26,6 +26,15 @@ const NavBar = () => {
 
 
   }, [])
+
+  const handleLogout = () => {
+      const auth = getAuth();
+      signOut(auth).then(() => {
+      logout()
+    }).catch((error) => {
+    
+    })
+  }
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -47,7 +56,7 @@ const NavBar = () => {
 
           {categories.map(category => <Link key={category.id} to={`/category/${category.description}`}><button className="btn btn-primary btn-sm">{category.description}</button></Link>)}
           {user}
-          {user ? <button onClick={() => logout()}>Logout</button> : <Link to="/login"><button>Login</button></Link>}
+          {user ? <button onClick={() => handleLogout()}>Logout</button> : <Link to="/login"><button>Login</button></Link>}
           {getQuantity() > 0 && <Link to='/cart'><CartWidget quantity={getQuantity()} /></Link>}
 
 

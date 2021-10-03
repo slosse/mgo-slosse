@@ -5,15 +5,14 @@ import UserContext from '../../context/UserContext'
 import { addDoc, collection } from '@firebase/firestore'
 import { db } from '../../services/firebase'
 import { getDoc, doc, writeBatch } from '@firebase/firestore'
+import { useHistory } from 'react-router-dom'
 
 const ConfirmOrder = () => {
 
     const { products, getTotal, emptyCart } = useContext(CartContext)
     const {user} = useContext(UserContext)
     const [processingOrder, setProcessingOrder] = useState(false)
-   
-        //validar login
-        //validar si hay productos
+    const history = useHistory()
 
     const confirmOrder = () => {
         setProcessingOrder(true)
@@ -57,12 +56,12 @@ const ConfirmOrder = () => {
     }
     
     useEffect(() => {
-        if(!user) {
-            return (() => {
-                console.log("No existe el usuario")
-            })
+        if(products) {
+            confirmOrder()
+        } else {
+            console.log("BACK")
+            history.goBack()
         }
-        confirmOrder()
         return (() => {
         })
     },[])
