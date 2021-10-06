@@ -1,12 +1,12 @@
 import "./styles.css"
 import UserContext from '../../context/UserContext'
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useHistory } from 'react-router-dom'
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider  } from "firebase/auth"
 
 const Login = () => {
-    const { login, user } = useContext(UserContext)
+    const { login } = useContext(UserContext)
     const history = useHistory()
 
     const auth = getAuth();
@@ -19,6 +19,7 @@ const Login = () => {
                 const token = credential.accessToken;
                 const user = result.user.displayName;
                 login(user)
+                console.log("usuario seteado " +user)
                 history.goBack()
             }).catch((error) => {
                 const errorCode = error.code;

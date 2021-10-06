@@ -14,8 +14,7 @@ const ItemListContainer = () => {
         setLoading(true)
         getCollection('products','category','==',categoryid).then(products => {
             setProducts(products)
-        })
-            .catch((error) => {
+        }).catch((error) => {
             console.log('Error searching products', error)
         }).finally(() => {
             setLoading(false)

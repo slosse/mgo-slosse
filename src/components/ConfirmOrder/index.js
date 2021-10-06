@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 const ConfirmOrder = () => {
 
-    const { products, getTotal, emptyCart } = useContext(CartContext)
+    const { products, getTotal, emptyCart, getQuantity } = useContext(CartContext)
     const {user} = useContext(UserContext)
     const [processingOrder, setProcessingOrder] = useState(false)
     const history = useHistory()
@@ -32,7 +32,7 @@ const ConfirmOrder = () => {
     }
     
     useEffect(() => {
-        if(products) {
+        if(getQuantity>0) {
             confirmOrder()
         } else {
             history.goBack()
