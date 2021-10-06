@@ -10,16 +10,15 @@ import ConfirmOrder from './components/ConfirmOrder'
 import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
 import { getAuth } from "firebase/auth";
-import { useContext,useEffect } from 'react'
-import UserContext from './context/UserContext'
 import { onAuthStateChanged } from '@firebase/auth'
+import { useContext, useEffect } from 'react'
+import UserContext from './context/UserContext'
 
 const App = () => {
 
   const { login } = useContext(UserContext)
   const auth = getAuth();
-  const {user} = useContext(UserContext) 
-  
+    
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -30,8 +29,7 @@ const App = () => {
 
 
   }, [])
-  console.log("APP")
-  console.log(user)
+
   return (
 
     <div className='App'>
@@ -45,13 +43,13 @@ const App = () => {
             <Route path='/about'>
               <About />
             </Route>
-            <PrivateRoute path='/cart' user={user}>
-              <Cart />
-            </PrivateRoute>
             <Route path='/item/:itemid'>
               <ItemDetailContainer />
             </Route>
-            <PrivateRoute path='/confirmOrder' user={user}>
+            <PrivateRoute path='/cart'>
+              <Cart />
+            </PrivateRoute>
+            <PrivateRoute path='/confirmOrder'>
               <ConfirmOrder />
             </PrivateRoute>
             <Route path='/login'>

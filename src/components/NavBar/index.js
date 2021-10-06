@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import UserContext from '../../context/UserContext'
 import CartContext from '../../context/CartContext'
-import { getDocs,collection } from '@firebase/firestore'
-import { db } from '../../services/firebase'
+import { getCollection } from '../../services/firebase'
 import { getAuth, signOut } from "firebase/auth";
 
 const NavBar = () => {
@@ -13,26 +12,28 @@ const NavBar = () => {
   const { user, logout } = useContext(UserContext)
   const { getQuantity } = useContext(CartContext)
   const [categories, setCategories] = useState([])
-  
+
 
   useEffect(() => {
-    
-    getDocs(collection(db,'categories')).then(querySnapshot => {
-      const categories = querySnapshot.docs.map(doc => {
-           return {id:doc.id, ...doc.data()}
-      })
+    getCollection('categories').then(categories => {
       setCategories(categories)
     })
+      .catch((error) => {
+        console.log('Error searching categories', error)
+    }).finally(() => {
+
+    })
+
 
 
   }, [])
 
   const handleLogout = () => {
-      const auth = getAuth();
-      signOut(auth).then(() => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
       logout()
     }).catch((error) => {
-    
+
     })
   }
 

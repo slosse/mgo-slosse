@@ -3,10 +3,10 @@ import UserContext from '../../context/UserContext'
 import { useContext, useEffect, useState } from "react"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useHistory } from 'react-router-dom'
-import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider  } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider  } from "firebase/auth"
 
 const Login = () => {
-    const { login } = useContext(UserContext)
+    const { login, user } = useContext(UserContext)
     const history = useHistory()
 
     const auth = getAuth();
@@ -29,8 +29,7 @@ const Login = () => {
             })
 
     }
-
-
+    
     return (
         <div className="Login">
             <h3>Login</h3>
