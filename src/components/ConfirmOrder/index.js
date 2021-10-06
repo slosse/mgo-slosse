@@ -32,7 +32,9 @@ const ConfirmOrder = () => {
     }
     
     useEffect(() => {
-        if(getQuantity>0) {
+        console.log("getQuantity "+getQuantity())
+        if(getQuantity()>0) {
+
             confirmOrder()
         } else {
             history.goBack()
