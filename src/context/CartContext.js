@@ -48,10 +48,17 @@ export const CartContextProvider = ({ children }) => {
     const emptyCart = () => {
         setProducts([])
     }
-
+    
     const isInCart = (id) => {
         products.forEach(element => {
             if (element.id === id) return true
+        })
+        return false
+    }
+
+    const getProductById = (id) => {
+        products.forEach(element => {
+            if (element.id === id) return element
         })
         return false
     }
@@ -73,7 +80,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal}}>
+        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal, getProductById}}>
             {children}
         </Context.Provider>
 

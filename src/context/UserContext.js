@@ -6,13 +6,11 @@ export const UserContextProvider = ({children}) => {
     const [user,setUser] = useState('')
   
     const login = (user) => {
-        console.log("Usuario logueado "+user)
         setUser(user)
     }
 
     const logout = () => {
         setUser('')
-        return
     }
     
     return (

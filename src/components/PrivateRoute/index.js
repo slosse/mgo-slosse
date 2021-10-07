@@ -5,13 +5,12 @@ import UserContext from '../../context/UserContext'
 const PrivateRoute = ({ children, ...rest }) => {
   
   const {user} = useContext(UserContext)
-  console.log("user -> "+user)
 
   return (
     <Route
       {...rest}
-      render={({ location }) =>
-        user ? (
+      render={({ location }) => 
+          user ? (
           children
         ) : (
           <Redirect

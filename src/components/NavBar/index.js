@@ -5,14 +5,15 @@ import { useContext, useEffect, useState } from 'react'
 import UserContext from '../../context/UserContext'
 import CartContext from '../../context/CartContext'
 import { getCollection } from '../../services/firebase'
-import { getAuth, signOut } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth"
+import { useHistory } from 'react-router'
 
 const NavBar = () => {
 
   const { user, logout } = useContext(UserContext)
-  const { getQuantity } = useContext(CartContext)
+  const { getQuantity, emptyCart } = useContext(CartContext)
   const [categories, setCategories] = useState([])
-
+  const history = useHistory()
 
   useEffect(() => {
     getCollection('categories').then(categories => {
@@ -24,14 +25,14 @@ const NavBar = () => {
 
     })
 
-
-
   }, [])
 
   const handleLogout = () => {
     const auth = getAuth();
     signOut(auth).then(() => {
       logout()
+      emptyCart()
+      history.push('/')
     }).catch((error) => {
 
     })

@@ -1,7 +1,7 @@
 import "./styles.css"
 import CartList from '../CartList'
 import CartContext from "../../context/CartContext"
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {

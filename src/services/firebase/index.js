@@ -32,6 +32,20 @@ export const getCollection = (dbCollection, filter, operator, condition) => {
   })
 }
 
+export const getDocumentById = (dbCollection, id) => {
+  return new Promise((resolve, reject) =>{
+
+        getDoc(doc(db, dbCollection, id)).then((querySnapshot) => {
+           
+            const document = { id: querySnapshot.id, ...querySnapshot.data() }
+            resolve(document)
+        }).catch((error) => {
+            reject('Error searching '+dbCollection, error)
+        })
+
+  })
+}
+
 export const saveOrder = (objOrder) => {
 
   const order = {date: Timestamp.fromDate(new Date()),...objOrder}

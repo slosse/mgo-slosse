@@ -1,15 +1,18 @@
 import "./styles.css"
 import UserContext from '../../context/UserContext'
+import NotificationContext from '../../context/NotificationContext'
 import { useContext } from "react"
 import 'bootstrap/dist/css/bootstrap.css'
 import { useHistory } from 'react-router-dom'
 import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider  } from "firebase/auth"
 
-const Login = () => {
+const Login = (props) => {
     const { login } = useContext(UserContext)
+    const {setNotification} = useContext(NotificationContext)
     const history = useHistory()
-
     const auth = getAuth();
+
+  //  console.log("history.location.state.from.pathname+"+ history?.location?.state?.from?.pathname)
     
     const handleLogin = (provider) => {
 
@@ -19,14 +22,12 @@ const Login = () => {
                 const token = credential.accessToken;
                 const user = result.user.displayName;
                 login(user)
-                console.log("usuario seteado " +user)
-                history.goBack()
+                setNotification("Bienvenido "+user)
+                
+                history?.location?.state?.from?.pathname ? history.push(history.location.state.from.pathname) : history.goBack()
+
             }).catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.email;
-                console.log(error.message)
-                const credential = GoogleAuthProvider.credentialFromError(error);
+                error.code==='auth/account-exists-with-different-credential' && setNotification("Parece que ya ingresaste con Gmail, por favor intenta ingresar con Gmail","error")
             })
 
     }
