@@ -32,7 +32,6 @@ const ConfirmOrder = () => {
     }
     
     useEffect(() => {
-        console.log("getQuantity "+getQuantity())
         if(getQuantity()>0) {
 
             confirmOrder()

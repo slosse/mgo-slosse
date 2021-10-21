@@ -18,16 +18,9 @@ const ItemDetail = ({ product }) => {
 
     const onAdd = () => {
         setLoading(true)
-        getDocumentById('products',product.id).then(dbProduct => {
-            setStock(dbProduct.stock)
-        }).catch((error) => {
-            console.log('Error searching products', error)
-        }).finally(() => {
-            setLoading(false)
-        })
+        getStock()
 
-        //setStock(stock)
-        if (quantity <= stock) {
+        if (quantity < stock) {
             setNostock(false)
         }
 
@@ -53,6 +46,24 @@ const ItemDetail = ({ product }) => {
 
     }
 
+    const getStock = () => {
+
+        getDocumentById('products',product.id).then(dbProduct => {
+            const cartProd = getProductById(product.id)
+            if(cartProd) {
+                dbProduct.stock-cartProd.quantity>=0?setStock(dbProduct.stock-cartProd.quantity):setStock(0)
+                setNotification(`Ya cargaste ${cartProd.quantity} unidades de este producto. Los productos que agregues se sumaran en el carrito.`,'error')
+            } else {
+                setStock(dbProduct.stock)
+            }
+
+        }).catch((error) => {
+            console.log('Error searching products', error)
+        }).finally(() => {
+            setLoading(false)
+        })
+    }
+
     const onaddtoCart = () => {
         if (quantity === 0 || loading) {
             return
@@ -63,12 +74,7 @@ const ItemDetail = ({ product }) => {
     }
 
     useEffect(()=> {
-        
-        const cartProd = getProductById(product.id)
-        console.log(JSON.stringify(cartProd))
-        if(cartProd) {
-            setNotification(`Ya tenes ${cartProd.quantity} de este producto en el carrito. Los productos que agreguen se sumaran en el carrito`)
-        }
+         getStock()
     },[])
 
     if (product === undefined) {
@@ -89,11 +95,12 @@ const ItemDetail = ({ product }) => {
             {!addToCart ?
                 <div>
                     <ItemCount onAdd={onAdd} onRemove={onRemove} onaddtoCart={onaddtoCart} quantity={quantity} />
-                    {nostock && <p style={{ color: 'red' }}>Se ha alcanzado el stock maximo</p>}
+                    {nostock && setNotification(`Se ha alcanzado el stock maximo`,'error')}
+
                 </div>
                 :
                 <Link to={`/cart`} >
-                    <button className="btn btn-primary" >Finalizar la compra</button>
+                    <button className="btn btn-primary" >Ir al carrito</button>
                 </Link>
             }
             <div>

@@ -13,14 +13,14 @@ export const CartContextProvider = ({ children }) => {
         var vProducts = [...products]
         try {
             products.forEach(element => {
-                if (element.id === id) {
+                if (element.id == id) {
 
                     if (element.quantity + quantity < 0) {
-                        return
+                        throw BreakException
                     }
                     const oldQuantity = element.quantity
 
-                    vProducts = vProducts.filter(element => element.id !== id)
+                    vProducts = vProducts.filter(element => element.id != id)
                     newQuantity = oldQuantity + quantity
                     throw BreakException
 
@@ -41,7 +41,7 @@ export const CartContextProvider = ({ children }) => {
 
 
     const removeItem = (id) => {
-        const newProducts = products.filter(element => element.id !== id)
+        const newProducts = products.filter(element => element.id != id)
         setProducts(newProducts)
     }
 
@@ -50,16 +50,32 @@ export const CartContextProvider = ({ children }) => {
     }
     
     const isInCart = (id) => {
-        products.forEach(element => {
-            if (element.id === id) return true
-        })
+        try {
+            products.forEach(element => {
+                if (element.id == id) throw BreakException
+            })
+        } catch(e){
+            if(e==BreakException) return true
+            else throw e
+        }
+        
         return false
     }
 
     const getProductById = (id) => {
-        products.forEach(element => {
-            if (element.id === id) return element
-        })
+    let element
+        try {
+            products.forEach(e => {
+
+                if (e.id == id) {
+                    element=e
+                    throw BreakException
+                }
+            })
+        } catch (e) {
+            if (e == BreakException) return element
+            else throw e
+        }
         return false
     }
 

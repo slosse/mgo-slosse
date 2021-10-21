@@ -12,7 +12,6 @@ const Login = (props) => {
     const history = useHistory()
     const auth = getAuth();
 
-  //  console.log("history.location.state.from.pathname+"+ history?.location?.state?.from?.pathname)
     
     const handleLogin = (provider) => {
 
