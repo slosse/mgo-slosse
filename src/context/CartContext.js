@@ -4,8 +4,13 @@ const Context = createContext()
 
 export const CartContextProvider = ({ children }) => {
     const [products, setProducts] = useState([])
+    const [contact, setContact] = useState('')
    
     var BreakException = {}
+
+    const setContactData = (contactData) => {
+        setContact(contactData)
+    }
 
     const addItem = (id, price, name, quantity) => {
 
@@ -96,7 +101,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal, getProductById}}>
+        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal, getProductById, contact, setContact}}>
             {children}
         </Context.Provider>
 

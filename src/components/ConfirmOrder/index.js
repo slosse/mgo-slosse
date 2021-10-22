@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 
 const ConfirmOrder = () => {
 
-    const { products, getTotal, emptyCart, getQuantity } = useContext(CartContext)
+    const { products, getTotal, emptyCart, getQuantity, contact } = useContext(CartContext)
     const {user} = useContext(UserContext)
     const [processingOrder, setProcessingOrder] = useState(false)
     const history = useHistory()
@@ -16,6 +16,7 @@ const ConfirmOrder = () => {
 
         const objOrder = {
             buyer: user,
+            contact: contact,
             items: products,
             total: getTotal() 
         }

@@ -7,7 +7,7 @@ const ContactForm = (props) => {
         <div className='ContactContainer'>
           <h1>Datos de Contacto</h1>
           <form className='ContactForm' >
-            <label className='LabelContact'>Telefono:
+            <label className='LabelContact'>(*) Telefono:
               <input
                 className='InputContact'
                 type='text'
@@ -15,7 +15,7 @@ const ContactForm = (props) => {
                 onChange={({ target }) => props.setPhone(target.value)}
               />
             </label>
-            <label className='LabelContact'>Direccion:
+            <label className='LabelContact'>(*) Dirección:
               <input
                 className='InputContact'
                 type='text'
@@ -31,8 +31,7 @@ const ContactForm = (props) => {
                 onChange={({ target }) => props.setComment(target.value)}
               />
             </label>
-            <br/>
-
+            <p>(*) Campo obligatorio</p>
           </form>
         </div>
       )
