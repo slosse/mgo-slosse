@@ -15,6 +15,7 @@ import PrivateRoute from './components/PrivateRoute'
 import { getAuth } from "firebase/auth";
 import { onAuthStateChanged } from '@firebase/auth'
 import Notification from './components/Notification'
+import ContactForm from './components/ContactForm'
 
 
 const App = () => {
@@ -56,6 +57,9 @@ const App = () => {
               </PrivateRoute>
               <Route path='/login'>
                 <Login />
+              </Route>
+              <Route path="/contactForm">
+                <ContactForm/>
               </Route>
               <Route path='/'>
                 <ItemListContainer />

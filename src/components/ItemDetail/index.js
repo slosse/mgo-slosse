@@ -20,9 +20,7 @@ const ItemDetail = ({ product }) => {
         setLoading(true)
         getStock()
 
-        if (quantity < stock) {
-            setNostock(false)
-        }
+        quantity < stock && setNostock(false)
 
         if (quantity >= stock) {
             setLoading(false)
