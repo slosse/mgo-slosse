@@ -3,7 +3,14 @@
 Este es el proyecto final del curso de React JS de Coder House, desarrollado por Enrique Slosse.
 Se trata de una aplicacion web de un E-Commerce.
 
-![] (http://localhost:3000/img/app.gif)
+![] (https://github.com/slosse/mgo-slosse/blob/main/public/img/app.gif)
+## Descripcion:
+Desde la pantalla inicial se selecciona un producto haciendo click en comprar. Se le agrega la cantidad y por ultimo se hace click en Agregar al carrito. En este momento ya tenemos el primer producto en el carrito de compras.
+Luego, desde la categoria Tango se elige otro producto, se le agrega la cantidad y se envia al carrito de compras. 
+Con el boton Ir al carrito podemos ver nuestros productos seleccionados a comprar, con su precio unitario total y cantidad.
+Al presionar el boton finalizar la comprar la app nos solicita que carguemos los datos de compra, habriendo un toggle.
+Cargando los datos obligatorios nos habilita para finalizar la compra.
+Finalmente el sistema nos confirma que nuestros pedido fue realizado con exito.
 
 
 Este proyecto se realizo con tecnologia JS y librerias de React.
