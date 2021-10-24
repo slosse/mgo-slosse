@@ -41,7 +41,7 @@ const ConfirmOrder = () => {
         }
         return (() => {
         })
-    },[])
+    },[])// eslint-disable-line react-hooks/exhaustive-deps
 
     return (<>
             <h3>Confirmación de Pedido</h3>

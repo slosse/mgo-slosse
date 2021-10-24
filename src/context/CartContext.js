@@ -18,14 +18,14 @@ export const CartContextProvider = ({ children }) => {
         var vProducts = [...products]
         try {
             products.forEach(element => {
-                if (element.id == id) {
+                if (element.id.toString() === id.toString() ) {
 
                     if (element.quantity + quantity < 0) {
                         throw BreakException
                     }
                     const oldQuantity = element.quantity
 
-                    vProducts = vProducts.filter(element => element.id != id)
+                    vProducts = vProducts.filter(element => element.id.toString() !== id.toString())
                     newQuantity = oldQuantity + quantity
                     throw BreakException
 
@@ -46,7 +46,7 @@ export const CartContextProvider = ({ children }) => {
 
 
     const removeItem = (id) => {
-        const newProducts = products.filter(element => element.id != id)
+        const newProducts = products.filter(element => element.id.toString()  !== id.toString() )
         setProducts(newProducts)
     }
 
@@ -57,10 +57,10 @@ export const CartContextProvider = ({ children }) => {
     const isInCart = (id) => {
         try {
             products.forEach(element => {
-                if (element.id == id) throw BreakException
+                if (element.id.toString()  === id.toString() ) throw BreakException
             })
         } catch(e){
-            if(e==BreakException) return true
+            if(e===BreakException) return true
             else throw e
         }
         
@@ -72,13 +72,13 @@ export const CartContextProvider = ({ children }) => {
         try {
             products.forEach(e => {
 
-                if (e.id == id) {
+                if (e.id.toString()  === id.toString() ) {
                     element=e
                     throw BreakException
                 }
             })
         } catch (e) {
-            if (e == BreakException) return element
+            if (e === BreakException) return element
             else throw e
         }
         return false
@@ -101,7 +101,7 @@ export const CartContextProvider = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal, getProductById, contact, setContact}}>
+        <Context.Provider value={{products,addItem, removeItem, emptyCart, isInCart, getQuantity, getTotal, getProductById, contact, setContactData}}>
             {children}
         </Context.Provider>
 

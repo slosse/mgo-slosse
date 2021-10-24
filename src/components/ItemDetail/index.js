@@ -73,7 +73,7 @@ const ItemDetail = ({ product }) => {
 
     useEffect(()=> {
          getStock()
-    },[])
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     if (product === undefined) {
         return <h3>{`NO EXISTE EL PRODUCTO :(`}</h3>

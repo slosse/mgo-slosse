@@ -1,27 +1,51 @@
 # MGO
 
-This is the final project of React JS Courde from  Coder House. It is an E-Commerce web app.
+Este es el proyecto final del curso de React JS de Coder House, desarrollado por Enrique Slosse.
+Se trata de una aplicacion web de un E-Commerce.
 
-The project uses Bootstrap and Rect Router.
+![] (http://localhost:3000/img/app.gif)
 
 
-## Installation guide
+Este proyecto se realizo con tecnologia JS y librerias de React.
 
-Clone the project
+La creacion se realizo con [Create React App](https://github.com/facebook/create-react-app).
+
+Para mejorar los estilos se utilizo Bootstrap.
+
+Para la navegación de componentes se utilizo Rect Router.
+
+La base de datos utilizada es Firebase Database.
+
+El login se realiza con los servicios de autenticacion de Firebase, en este caso Google y Facebook.
+
+Cada uno de los componentes desarrollados se encuentran en carpetas separadas, con el archivo index correspondiente y se exporta por default el objeto del mismo nombre.
+
+Para mantener estados generales de la app se utiliza Context.
+
+
+## Guia de Instalacion
+
+Clonar el proyecto
 ### `git clone https://github.com/slosse/mgo-slosse`
 
-## Install Bootstrap
+## Instalar Bootstrap
 
-In the project directory, you can run:
+En el directorio del proyecto, ejecutar:
 ### `npm install bootstrap`
 
-## Install React Router
+## Instalar React Router
 
-In the project directory, you can run:
+En el directorio del proyecto, ejecutar:
 ### `npm install react-router-dom`
 
+## Instalar Firebase
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+En el directorio del proyecto, ejecutar:
+### `npm install firebase`
+
+### Configurar Firebase
+Modificar el archivo .env.example: reeemplazar las credenciales y modificar el nombre a .env
+
 
 ## Available Scripts
 

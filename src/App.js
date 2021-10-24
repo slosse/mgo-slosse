@@ -27,9 +27,7 @@ const App = () => {
     onAuthStateChanged(auth, (user) => {
       user && login(user.displayName)
     })
-
-
-  }, [])
+  }, [])// eslint-disable-line react-hooks/exhaustive-deps
 
   return (
 
